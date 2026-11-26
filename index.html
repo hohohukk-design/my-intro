@@ -1,0 +1,793 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>김영민 · 김아방 소개</title>
+<meta name="description" content="예술의전당 정보전략부 김영민(김아방)을 소개하는 페이지">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+  :root{
+    --blue:#2f4bbf;          /* 주 색상 */
+    --blue-soft:#e7ebfb;
+    --yellow:#ffe14a;        /* 보조색 1: 포인트 노랑 */
+    --yellow-soft:#fff6c7;
+    --ink:#2a2522;           /* 보조색 2: 따뜻한 먹색 */
+    --ink-soft:#5f5751;
+    --bg:#fffcf0;
+    --card:#ffffff;
+    --line:#efe6c8;
+    --radius:24px;
+    --shadow:0 6px 0 rgba(42,37,34,.08), 0 14px 30px rgba(42,37,34,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    font-size:17px; line-height:1.7; word-break:keep-all; overflow-wrap:break-word;
+    overflow-x:hidden;
+  }
+  img,svg{display:block}
+  a{color:inherit}
+  .wrap{width:100%; max-width:1120px; margin:0 auto; padding:0 16px}
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .ico{width:24px;height:24px;flex:none}
+  :focus-visible{outline:3px solid var(--blue); outline-offset:3px; border-radius:12px}
+
+  /* ---------- 상단 바 ---------- */
+  .topbar{
+    position:sticky; top:0; z-index:30;
+    background:rgba(255,252,240,.92); backdrop-filter:saturate(1.4) blur(8px); -webkit-backdrop-filter:saturate(1.4) blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar .wrap{display:flex; align-items:center; justify-content:space-between; height:60px}
+  .brand{display:flex; align-items:center; gap:8px; font-weight:800; text-decoration:none; font-size:17px}
+  .brand-dot{width:30px;height:30px;border-radius:50%;background:var(--yellow);display:grid;place-items:center;border:2px solid var(--ink)}
+  .motion-btn{
+    display:inline-flex; align-items:center; gap:6px; min-height:44px; padding:0 14px;
+    border-radius:999px; border:2px solid var(--ink); background:var(--card); color:var(--ink);
+    font:inherit; font-size:16px; font-weight:700; cursor:pointer;
+  }
+  .motion-btn .ico{width:20px;height:20px}
+  .motion-btn[aria-pressed="true"]{background:var(--ink); color:var(--yellow)}
+
+  /* ---------- 첫 화면 ---------- */
+  .hero{position:relative; background:var(--yellow); overflow:hidden; min-height:calc(100svh - 60px); display:flex; flex-direction:column}
+  .hero-inner{position:relative; z-index:2; flex:1; display:grid; gap:28px; padding-top:32px; padding-bottom:24px; align-content:center}
+  .greet{
+    display:inline-flex; align-items:center; gap:10px; align-self:start; justify-self:start;
+    background:var(--card); border:2px solid var(--ink); border-radius:22px 22px 22px 6px;
+    padding:10px 16px; font-weight:700; font-size:16px; box-shadow:4px 4px 0 var(--ink);
+  }
+  .greet .ico{color:var(--blue)}
+  .who{display:flex; align-items:center; gap:16px}
+  .photo-wrap{
+    position:relative; width:104px; height:104px; flex:none; border-radius:50%;
+    border:3px solid var(--ink); background:var(--card); overflow:hidden; box-shadow:4px 4px 0 var(--ink);
+  }
+  .photo-wrap img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+  .photo-fallback{position:absolute; inset:0; display:grid; place-items:center; background:var(--blue-soft)}
+  .who h1{margin:0; font-size:30px; line-height:1.25; letter-spacing:-.02em}
+  .who h1 small{display:block; font-size:16px; font-weight:600; color:var(--ink-soft); letter-spacing:0}
+  .nick{display:inline-block; margin-top:6px; font-size:16px; font-weight:700; background:var(--ink); color:var(--yellow); padding:2px 12px; border-radius:999px}
+  .slogan{margin:0; font-size:clamp(34px, 9.5vw, 68px); line-height:1.18; letter-spacing:-.035em; font-weight:900}
+  .slogan .hl{color:var(--blue); position:relative; white-space:nowrap}
+  .slogan .hl::after{content:""; position:absolute; left:-2px; right:-2px; bottom:.08em; height:.22em; background:var(--card); z-index:-1; border-radius:6px}
+  .slogan span{position:relative; z-index:1}
+  .tagline{margin:0; font-size:18px; color:var(--ink); max-width:34em}
+  .hero-cta{display:flex; flex-wrap:wrap; gap:10px}
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:52px; padding:0 22px;
+    border-radius:999px; border:2px solid var(--ink); font:inherit; font-weight:800; font-size:17px; text-decoration:none; cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-primary{background:var(--blue); color:#fff; box-shadow:4px 4px 0 var(--ink)}
+  .btn-ghost{background:var(--card); color:var(--ink); box-shadow:4px 4px 0 var(--ink)}
+  .btn:active{transform:translate(3px,3px); box-shadow:1px 1px 0 var(--ink)}
+
+  .hero-art{position:relative; justify-self:center; width:min(300px, 80vw); aspect-ratio:1/1}
+  .hero-art .blob{position:absolute; inset:6%; background:var(--card); border:3px solid var(--ink); border-radius:46% 54% 50% 50% / 52% 46% 54% 48%}
+  .hero-art .mascot-big{position:absolute; left:50%; top:52%; width:62%; transform:translate(-50%,-50%); cursor:pointer; background:none; border:0; padding:0}
+  .hero-art .mascot-big svg{width:100%; height:auto}
+  .hero-art .say{position:absolute; left:50%; top:4%; transform:translateX(-50%); background:var(--ink); color:var(--yellow); font-weight:700; font-size:16px; padding:8px 14px; border-radius:18px; white-space:nowrap; opacity:0; transition:opacity .2s}
+  .hero-art .say.on{opacity:1}
+  .shape{position:absolute; z-index:1; pointer-events:none}
+  .float{animation:float 6s ease-in-out infinite}
+  .float.d2{animation-delay:-2s} .float.d3{animation-delay:-4s}
+  @keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-10px) rotate(6deg)}}
+
+  .ground{position:relative; height:96px; flex:none; z-index:1}
+  .ground svg{position:absolute; bottom:0; left:0; width:100%; height:100%}
+
+  /* ---------- 공통 섹션 ---------- */
+  section.block{padding:72px 0}
+  .sec-head{display:flex; align-items:flex-start; gap:14px; margin-bottom:28px}
+  .sec-ico{width:52px; height:52px; flex:none; border-radius:18px; background:var(--yellow); border:2px solid var(--ink); display:grid; place-items:center; box-shadow:3px 3px 0 var(--ink)}
+  .sec-ico .ico{width:28px; height:28px}
+  .sec-head h2{margin:0; font-size:26px; line-height:1.3; letter-spacing:-.02em}
+  .sec-head p{margin:4px 0 0; color:var(--ink-soft); font-size:16px}
+
+  /* 말풍선 공통 */
+  .bubble{position:relative; background:var(--card); border:2px solid var(--ink); border-radius:var(--radius); box-shadow:var(--shadow)}
+  .bubble.tail-l::after, .bubble.tail-r::after{
+    content:""; position:absolute; bottom:-12px; width:22px; height:22px; background:inherit;
+    border-right:2px solid var(--ink); border-bottom:2px solid var(--ink);
+  }
+  .bubble.tail-l::after{left:28px; transform:skewX(30deg) rotate(45deg) scale(.8)}
+  .bubble.tail-r::after{right:28px; transform:skewX(-30deg) rotate(45deg) scale(.8)}
+
+  /* ---------- 2. 자기소개 (채팅) ---------- */
+  .chat{display:grid; gap:14px; max-width:760px}
+  .msg{display:flex; gap:10px; align-items:flex-end}
+  .msg .av{width:44px; height:44px; flex:none; border-radius:50%; background:var(--yellow); border:2px solid var(--ink); display:grid; place-items:center; overflow:hidden}
+  .msg .av svg{width:36px; height:36px}
+  .msg .text{background:var(--card); border:2px solid var(--ink); border-radius:22px 22px 22px 6px; padding:12px 16px; box-shadow:3px 3px 0 rgba(42,37,34,.12); margin:0}
+  .msg.cont .av{visibility:hidden}
+  .msg.me{justify-content:flex-end}
+  .msg.me .text{background:var(--blue); color:#fff; border-radius:22px 22px 6px 22px}
+
+  /* ---------- 3. 키워드 플립 ---------- */
+  .kw-grid{display:grid; gap:18px}
+  .flip{all:unset; display:block; cursor:pointer; perspective:1000px; -webkit-tap-highlight-color:transparent; border-radius:var(--radius)}
+  .flip:focus-visible{outline:3px solid var(--blue); outline-offset:4px}
+  .flip-inner{display:grid; transition:transform .6s cubic-bezier(.2,.8,.3,1.2); transform-style:preserve-3d}
+  .flip[aria-pressed="true"] .flip-inner{transform:rotateY(180deg)}
+  .face{grid-area:1/1; backface-visibility:hidden; -webkit-backface-visibility:hidden; min-height:210px; padding:24px; border:2px solid var(--ink); border-radius:var(--radius); display:flex; flex-direction:column; justify-content:center; box-shadow:var(--shadow)}
+  .face.front{background:var(--card); align-items:flex-start; gap:12px}
+  .face.back{background:var(--blue); color:#fff; transform:rotateY(180deg)}
+  .kw-num{font-weight:800; font-size:16px; color:var(--blue)}
+  .kw-word{font-size:34px; font-weight:900; letter-spacing:-.03em; line-height:1.2}
+  .kw-word .ico{display:inline-block; vertical-align:-4px; width:32px; height:32px; color:var(--blue); margin-right:6px}
+  .kw-hint{display:inline-flex; align-items:center; gap:6px; font-size:16px; font-weight:700; color:var(--ink-soft); background:var(--yellow-soft); padding:4px 12px; border-radius:999px}
+  .kw-hint .ico{width:18px;height:18px}
+  .face.back h3{margin:0 0 8px; font-size:22px; color:var(--yellow)}
+  .face.back p{margin:0; font-size:17px}
+
+  /* ---------- 4. 업무 카드 ---------- */
+  .work-grid{display:grid; gap:24px}
+  .work{padding:24px 22px 26px; margin-bottom:12px}
+  .work-top{display:flex; align-items:center; gap:12px; margin-bottom:14px}
+  .work-ico{width:48px; height:48px; border-radius:16px; background:var(--blue-soft); color:var(--blue); display:grid; place-items:center; flex:none}
+  .work-ico .ico{width:28px; height:28px}
+  .work h3{margin:0; font-size:21px; letter-spacing:-.01em}
+  .q{display:inline-block; margin:0 0 12px; background:var(--yellow-soft); border:2px dashed #e6c93a; padding:8px 14px; border-radius:16px 16px 16px 4px; font-weight:700; font-size:16px}
+  .work p.a{margin:0; color:var(--ink)}
+
+  /* ---------- 5. 원칙 ---------- */
+  .rules{display:grid; gap:16px; counter-reset:r; list-style:none; margin:0; padding:0}
+  .rule{display:flex; gap:16px; align-items:flex-start; background:var(--card); border:2px solid var(--ink); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow)}
+  .rule-badge{position:relative; width:56px; height:56px; flex:none; display:grid; place-items:center}
+  .rule-badge svg.bg{position:absolute; inset:0; width:100%; height:100%}
+  .rule-badge .ico{position:relative; color:var(--ink); width:26px; height:26px}
+  .rule h3{margin:0 0 4px; font-size:20px}
+  .rule h3::before{counter-increment:r; content:"약속 " counter(r) " · "; color:var(--blue); font-size:16px; font-weight:800; display:block}
+  .rule p{margin:0; color:var(--ink-soft)}
+
+  /* ---------- 6. 관심 태그 ---------- */
+  .pills{display:flex; flex-wrap:wrap; gap:10px; list-style:none; margin:0; padding:0}
+  .pill{display:inline-flex; align-items:center; gap:8px; min-height:44px; padding:6px 18px; border-radius:999px; border:2px solid var(--ink); background:var(--card); font-weight:700; font-size:16px}
+  .pill::before{content:""; width:10px; height:10px; border-radius:50%; background:var(--blue); flex:none}
+  .pill.y{background:var(--yellow)}
+  .pill.y::before{background:var(--ink)}
+  .pill.b{background:var(--blue); color:#fff}
+  .pill.b::before{background:var(--yellow)}
+
+  /* ---------- 7. 연락 ---------- */
+  .contact{background:var(--ink); color:#fff; padding:72px 0 0; position:relative; overflow:hidden}
+  .contact .sec-ico{background:var(--yellow)}
+  .contact .sec-head p{color:#d8d0c8}
+  .contact-card{background:var(--yellow); color:var(--ink); border-color:var(--yellow); padding:26px 22px; max-width:640px; margin-bottom:12px}
+  .contact-card p{margin:0 0 18px; font-size:18px}
+  .contact-card .btn{width:100%}
+  .mail-text{display:block; margin-top:12px; font-size:16px; font-weight:600; text-align:center}
+  .bye{margin:36px 0 0; font-size:18px; color:#f3ede6}
+  .contact .ground{height:110px}
+  .foot-note{text-align:center; font-size:16px; color:#b9b0a6; margin:40px 0 0}
+
+  /* ---------- 등장 효과 ---------- */
+  .js .reveal{opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s ease}
+  .js .reveal.in{opacity:1; transform:none}
+
+  /* ---------- 걸어 다니는 캐릭터 ---------- */
+  .walker{
+    position:fixed; left:0; bottom:calc(10px + env(safe-area-inset-bottom)); z-index:20;
+    width:64px; height:64px; transform:translateX(-90px); pointer-events:none; visibility:hidden;
+    transition:opacity .25s;
+  }
+  .walker.walking{visibility:visible; animation:walk var(--dur,11s) linear forwards}
+  .walker.rtl{animation-name:walk-rtl}
+  .walker.hide{opacity:0}
+  .walker.hide button{pointer-events:none}
+  .walker button{all:unset; display:block; width:64px; height:64px; cursor:pointer; pointer-events:auto; -webkit-tap-highlight-color:transparent; border-radius:50%}
+  .walker button:focus-visible{outline:3px solid var(--blue)}
+  .walker .body{width:64px; height:64px}
+  .walker.rtl .body{transform:scaleX(-1)}
+  .walker.walking .bob{animation:bob .4s ease-in-out infinite alternate}
+  .walker .leg-l{animation:step .4s ease-in-out infinite alternate; transform-origin:24px 50px}
+  .walker .leg-r{animation:step .4s ease-in-out infinite alternate-reverse; transform-origin:40px 50px}
+  .walker.paused, .walker.paused .bob, .walker.paused .leg-l, .walker.paused .leg-r{animation-play-state:paused}
+  .walker.jump .hop{animation:hop .55s cubic-bezier(.3,1.6,.5,1)}
+  .walker .speech{
+    position:absolute; bottom:72px; left:50%; transform:translateX(-50%) scale(.6); opacity:0;
+    background:var(--card); color:var(--ink); border:2px solid var(--ink); border-radius:16px 16px 16px 4px;
+    padding:8px 12px; font-size:16px; font-weight:700; white-space:nowrap; box-shadow:3px 3px 0 var(--ink);
+    transition:opacity .2s, transform .2s cubic-bezier(.3,1.6,.5,1);
+  }
+  .walker .speech{transform:translateX(calc(-50% + var(--sx,0px))) scale(.6)}
+  .walker .speech.on{opacity:1; transform:translateX(calc(-50% + var(--sx,0px))) scale(1)}
+  @keyframes walk{from{transform:translateX(-90px)}to{transform:translateX(calc(100vw + 90px))}}
+  @keyframes walk-rtl{from{transform:translateX(calc(100vw + 90px))}to{transform:translateX(-90px)}}
+  @keyframes bob{from{transform:translateY(0)}to{transform:translateY(-3px)}}
+  @keyframes step{from{transform:rotate(-14deg)}to{transform:rotate(14deg)}}
+  @keyframes hop{0%{transform:translateY(0)}40%{transform:translateY(-34px)}100%{transform:translateY(0)}}
+  .mascot-big.jump{animation:hopBig .55s cubic-bezier(.3,1.6,.5,1)}
+  @keyframes hopBig{0%{transform:translate(-50%,-50%)}40%{transform:translate(-50%,-68%)}100%{transform:translate(-50%,-50%)}}
+
+  /* ---------- 움직임 끄기 ---------- */
+  .no-motion *, .no-motion *::before, .no-motion *::after{animation:none !important; transition:none !important; scroll-behavior:auto !important}
+  .no-motion .reveal{opacity:1 !important; transform:none !important}
+  .no-motion .walker{display:none}
+  html.no-motion{scroll-behavior:auto}
+
+  /* ---------- 넓은 화면 ---------- */
+  @media (min-width:768px){
+    .wrap{padding:0 32px}
+    .hero-inner{grid-template-columns:1.25fr .9fr; align-items:center; padding-top:48px}
+    .hero-left{display:grid; gap:24px}
+    .hero-art{width:min(380px, 100%)}
+    .photo-wrap{width:120px; height:120px}
+    .who h1{font-size:34px}
+    .sec-head h2{font-size:32px}
+    section.block{padding:96px 0}
+    .kw-grid{grid-template-columns:repeat(3,1fr)}
+    .work-grid{grid-template-columns:repeat(2,1fr)}
+    .rules{grid-template-columns:repeat(3,1fr)}
+    .rule{flex-direction:column}
+    .contact-card .btn{width:auto}
+    .mail-text{text-align:left}
+    .contact-row{display:grid; grid-template-columns:1.2fr 1fr; gap:40px; align-items:end}
+    .bye{margin:0 0 12px}
+  }
+  @media (max-width:767px){
+    .hero-left{display:grid; gap:22px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== SVG 아이콘 · 캐릭터 정의 ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></symbol>
+    <symbol id="i-bowl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18a9 9 0 0 1-18 0Z"/><path d="M8 8c0-1.5 1-1.5 1-3M12 8c0-1.5 1-1.5 1-3M16 8c0-1.5 1-1.5 1-3"/></symbol>
+    <symbol id="i-sunset" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 16a5 5 0 0 1 10 0M3 20h18M12 4v3M4.9 9.9l1.4 1.4M19.1 9.9l-1.4 1.4M2 16h2M20 16h2"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/><path d="M17 3.5l.6 1.4 1.4.6-1.4.6-.6 1.4-.6-1.4-1.4-.6 1.4-.6Z" fill="currentColor"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4Z"/><path d="M8 10h.01M12 10h.01M16 10h.01" stroke-linecap="round" stroke-width="3"/></symbol>
+    <symbol id="i-cards" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="6" width="12" height="15" rx="2"/><path d="M8 3h11a2 2 0 0 1 2 2v13"/></symbol>
+    <symbol id="i-tools" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5a4 4 0 0 0 5 5l-8 8a2.1 2.1 0 0 1-3-3l8-8a4 4 0 0 1-2-2Z"/><path d="M14.5 6.5 17 4l3 3-2.5 2.5"/></symbol>
+    <symbol id="i-promise" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 7.8 8 9 4.6-1.2 8-4.5 8-9V6Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 12V4h8l10 10-8 8Z"/><circle cx="7.5" cy="8.5" r="1.5" fill="currentColor"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></symbol>
+    <symbol id="i-smile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M8 14.5c1 1.4 2.4 2 4 2s3-.6 4-2M9 9.5h.01M15 9.5h.01" stroke-width="2.4"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 14a4 4 0 0 0 5.7 0l3.6-3.6a4 4 0 0 0-5.7-5.7L12 6.3"/><path d="M14 10a4 4 0 0 0-5.7 0l-3.6 3.6a4 4 0 0 0 5.7 5.7l1.6-1.6"/></symbol>
+    <symbol id="i-anchor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a8 8 0 0 1 8 8v2a8 8 0 0 1-16 0v-2a8 8 0 0 1 8-8Z"/><path d="M9 11h.01M15 11h.01" stroke-width="3"/><path d="M9.5 15h5"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6Z"/><path d="M14 3v4h4M9 12h6M9 16h4" stroke-linecap="round"/></symbol>
+    <symbol id="i-app" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="3" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="2"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="2"/><path d="M17.25 13.5v7.5M13.5 17.25H21" stroke-linecap="round"/></symbol>
+    <symbol id="i-pc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M9 20h6M12 16v4" stroke-linecap="round"/></symbol>
+    <symbol id="i-net" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="5" rx="1"/><rect x="3" y="16" width="6" height="5" rx="1"/><rect x="15" y="16" width="6" height="5" rx="1"/><path d="M12 8v4M6 16v-4h12v4"/></symbol>
+    <symbol id="i-speak" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-6l-4 4v-4H6a2 2 0 0 1-2-2Z"/><path d="M8.5 9.5h7M8.5 12.5h4" stroke-linecap="round"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></symbol>
+    <symbol id="i-note" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16Z"/><path d="m13.5 6.5 4 4"/></symbol>
+    <symbol id="i-flip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1.5"/><rect x="14" y="5" width="4" height="14" rx="1.5"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15a1 1 0 0 0 1.5.9l12-7.5a1 1 0 0 0 0-1.8l-12-7.5A1 1 0 0 0 7 4.5Z"/></symbol>
+    <symbol id="i-person" viewBox="0 0 64 64"><circle cx="32" cy="25" r="12" fill="#2f4bbf"/><path d="M10 60c2-12 11-19 22-19s20 7 22 19Z" fill="#2f4bbf"/></symbol>
+
+    <!-- 오리지널 캐릭터 '핑이' : 와이파이 더듬이가 달린 동글동글 공유기 친구 -->
+    <symbol id="mascot" viewBox="0 0 64 64">
+      <g class="hop"><g class="bob">
+        <!-- 더듬이 + 신호 -->
+        <path d="M24 16 20 6M40 16l4-10" stroke="#2a2522" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <circle cx="20" cy="5.5" r="3" fill="#2f4bbf" stroke="#2a2522" stroke-width="1.5"/>
+        <circle cx="44" cy="5.5" r="3" fill="#2f4bbf" stroke="#2a2522" stroke-width="1.5"/>
+        <!-- 몸 -->
+        <rect x="9" y="14" width="46" height="36" rx="17" fill="#ffe14a" stroke="#2a2522" stroke-width="2.5"/>
+        <!-- 배 패널 + LED -->
+        <rect x="19" y="36" width="26" height="8" rx="4" fill="#fff" stroke="#2a2522" stroke-width="1.8"/>
+        <circle cx="25" cy="40" r="1.7" fill="#2f4bbf"/><circle cx="32" cy="40" r="1.7" fill="#2f4bbf"/><circle cx="39" cy="40" r="1.7" fill="#ff8a65"/>
+        <!-- 얼굴 -->
+        <circle cx="24" cy="27" r="2.8" fill="#2a2522"/><circle cx="40" cy="27" r="2.8" fill="#2a2522"/>
+        <circle cx="25" cy="26" r=".9" fill="#fff"/><circle cx="41" cy="26" r=".9" fill="#fff"/>
+        <path d="M29 30.5q3 3 6 0" stroke="#2a2522" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <ellipse cx="18" cy="32" rx="3" ry="2" fill="#ffb199" opacity=".8"/><ellipse cx="46" cy="32" rx="3" ry="2" fill="#ffb199" opacity=".8"/>
+        <!-- 랜선 꼬리 -->
+        <path d="M55 36q6 1 6 6" stroke="#2f4bbf" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <rect x="58" y="41" width="6" height="5" rx="1" fill="#2f4bbf" stroke="#2a2522" stroke-width="1.2"/>
+      </g>
+      <!-- 다리 -->
+      <g class="leg-l"><path d="M24 49v8" stroke="#2a2522" stroke-width="3" stroke-linecap="round"/><ellipse cx="22.5" cy="58.5" rx="4" ry="2.4" fill="#2a2522"/></g>
+      <g class="leg-r"><path d="M40 49v8" stroke="#2a2522" stroke-width="3" stroke-linecap="round"/><ellipse cx="41.5" cy="58.5" rx="4" ry="2.4" fill="#2a2522"/></g>
+      </g>
+    </symbol>
+
+    <symbol id="ground-y" viewBox="0 0 400 96" preserveAspectRatio="none">
+      <path d="M0 40 Q50 18 100 36 T200 34 T300 32 T400 38 V96 H0Z" fill="#fff6c7"/>
+      <path d="M0 62 Q60 46 120 58 T240 56 T400 60 V96 H0Z" fill="#fffcf0"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="맨 위로">
+      <span class="brand-dot"><svg width="22" height="22"><use href="#mascot"/></svg></span>
+      김아방의 방
+    </a>
+    <button class="motion-btn" id="motionBtn" type="button" aria-pressed="false">
+      <svg class="ico" aria-hidden="true"><use href="#i-pause"/></svg>
+      <span>움직임 끄기</span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+  <!-- ===== 1. 첫 화면 ===== -->
+  <section class="hero" aria-labelledby="heroName">
+    <div class="wrap hero-inner">
+      <div class="hero-left">
+        <p class="greet" id="greet" aria-live="polite">
+          <svg class="ico" aria-hidden="true"><use id="greetIco" href="#i-sun"/></svg>
+          <span id="greetText">반가워요! 잘 오셨어요.</span>
+        </p>
+
+        <div class="who">
+          <div class="photo-wrap">
+            <div class="photo-fallback" aria-hidden="true"><svg width="72" height="72"><use href="#i-person"/></svg></div>
+            <img src="photo.jpg" alt="김영민 사진" onerror="this.remove()">
+          </div>
+          <div>
+            <h1 id="heroName"><small>예술의전당 정보전략부</small>김영민</h1>
+            <span class="nick">a.k.a. 김아방</span>
+          </div>
+        </div>
+
+        <h2 class="slogan">
+          <span>공연은 무대에서,</span><br>
+          <span class="hl">접속</span><span>은 제가</span><br>
+          <span>책임질게요.</span>
+        </h2>
+
+        <p class="tagline">전산업무를 즐겁게 하고 있는 김아방입니다. 일하다 뭔가 멈췄다면, 편하게 말 걸어주세요.</p>
+
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#contact"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>말 걸어보기</a>
+          <a class="btn btn-ghost" href="#about">더 알아보기</a>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-hidden="false">
+        <div class="blob" aria-hidden="true"></div>
+        <!-- 장식 도형 (글자 영역 밖, 일러스트 주변에만) -->
+        <svg class="shape float" style="top:2%;right:2%;width:44px" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="#2f4bbf"/></svg>
+        <svg class="shape float d2" style="top:58%;left:0;width:40px" viewBox="0 0 40 40" aria-hidden="true"><rect x="6" y="6" width="28" height="28" rx="8" fill="#fff" stroke="#2a2522" stroke-width="3" transform="rotate(15 20 20)"/></svg>
+        <svg class="shape float d3" style="bottom:2%;right:8%;width:36px" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4 36 34H4Z" fill="#fff" stroke="#2a2522" stroke-width="3" stroke-linejoin="round"/></svg>
+        <svg class="shape float d2" style="top:14%;left:6%;width:26px" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2l4 14 14 4-14 4-4 14-4-14-14-4 14-4Z" fill="#2a2522"/></svg>
+        <span class="say" id="heroSay" aria-live="polite"></span>
+        <button class="mascot-big" id="heroMascot" type="button" aria-label="캐릭터 핑이에게 인사하기">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mascot"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="ground" data-lane aria-hidden="true">
+      <svg viewBox="0 0 400 96" preserveAspectRatio="none"><use href="#ground-y"/></svg>
+    </div>
+  </section>
+
+  <!-- ===== 2. 자기소개 ===== -->
+  <section class="block" id="about" aria-labelledby="aboutTitle">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-ico" aria-hidden="true"><svg class="ico"><use href="#i-chat"/></svg></div>
+        <div>
+          <h2 id="aboutTitle">먼저 말 걸어볼게요</h2>
+          <p>메신저 열어둔 것처럼, 편하게 읽어주세요.</p>
+        </div>
+      </div>
+
+      <div class="chat">
+        <div class="msg reveal">
+          <div class="av" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#mascot"/></svg></div>
+          <p class="text">안녕하세요! 예술의전당 정보전략부에서 전산 업무를 맡고 있는 김영민입니다. 동료들 사이에서는 ‘김아방’이라는 이름으로 더 자주 불려요.</p>
+        </div>
+        <div class="msg cont reveal">
+          <div class="av" aria-hidden="true"></div>
+          <p class="text">그룹웨어와 각종 소프트웨어, 매일 손이 닿는 PC와 주변기기, 그리고 이 모든 것을 이어 주는 네트워크 인프라까지. 일하는 데 꼭 필요하지만 평소엔 잘 보이지 않는 것들을 돌보고 있어요.</p>
+        </div>
+        <div class="msg me reveal">
+          <p class="text">“이거 갑자기 왜 안 되죠?”</p>
+        </div>
+        <div class="msg reveal">
+          <div class="av" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#mascot"/></svg></div>
+          <p class="text">이런 질문을 받으면 원인을 차근차근 찾아서, 다시 웃으며 일할 수 있게 만드는 순간을 가장 좋아합니다. 어려운 전산 용어 대신 쉬운 말로 풀어 드리는 것도 제 몫이라고 생각해요.</p>
+        </div>
+        <div class="msg cont reveal">
+          <div class="av" aria-hidden="true"></div>
+          <p class="text">무대 위의 공연과 전시가 마음껏 빛날 수 있도록, 무대 뒤의 디지털 환경을 즐겁고 단단하게 가꾸는 사람이 되고 싶습니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 3. 키워드 ===== -->
+  <section class="block" aria-labelledby="kwTitle" style="background:var(--yellow-soft)">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-ico" aria-hidden="true"><svg class="ico"><use href="#i-cards"/></svg></div>
+        <div>
+          <h2 id="kwTitle">세 단어로 줄여 보면</h2>
+          <p>카드를 톡 누르면 뒷면이 보여요.</p>
+        </div>
+      </div>
+
+      <div class="kw-grid">
+        <button class="flip reveal" type="button" aria-pressed="false">
+          <span class="flip-inner">
+            <span class="face front">
+              <span class="kw-num">키워드 하나</span>
+              <span class="kw-word"><svg class="ico" aria-hidden="true"><use href="#i-smile"/></svg>즐겁게</span>
+              <span class="kw-hint"><svg class="ico" aria-hidden="true"><use href="#i-flip"/></svg>눌러서 뒤집기</span>
+            </span>
+            <span class="face back">
+              <h3>즐겁게</h3>
+              <p>복잡한 장애도 풀어야 할 퍼즐처럼 바라봐요. 즐겁게 일하는 사람이 결국 더 오래, 더 꼼꼼하게 해낸다고 믿거든요.</p>
+            </span>
+          </span>
+        </button>
+
+        <button class="flip reveal" type="button" aria-pressed="false">
+          <span class="flip-inner">
+            <span class="face front">
+              <span class="kw-num">키워드 둘</span>
+              <span class="kw-word"><svg class="ico" aria-hidden="true"><use href="#i-link"/></svg>연결</span>
+              <span class="kw-hint"><svg class="ico" aria-hidden="true"><use href="#i-flip"/></svg>눌러서 뒤집기</span>
+            </span>
+            <span class="face back">
+              <h3>연결</h3>
+              <p>장비와 장비, 시스템과 사람, 부서와 부서 사이가 끊기지 않게 잇는 일. 케이블만큼이나 사람 사이의 소통도 중요하게 생각해요.</p>
+            </span>
+          </span>
+        </button>
+
+        <button class="flip reveal" type="button" aria-pressed="false">
+          <span class="flip-inner">
+            <span class="face front">
+              <span class="kw-num">키워드 셋</span>
+              <span class="kw-word"><svg class="ico" aria-hidden="true"><use href="#i-anchor"/></svg>든든함</span>
+              <span class="kw-hint"><svg class="ico" aria-hidden="true"><use href="#i-flip"/></svg>눌러서 뒤집기</span>
+            </span>
+            <span class="face back">
+              <h3>든든함</h3>
+              <p>잘 돌아갈 땐 티가 나지 않아도, 무언가 멈췄을 때 가장 먼저 떠오르는 사람. 그런 믿음직한 자리를 지키고 싶어요.</p>
+            </span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 4. 담당 업무 ===== -->
+  <section class="block" aria-labelledby="workTitle">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-ico" aria-hidden="true"><svg class="ico"><use href="#i-tools"/></svg></div>
+        <div>
+          <h2 id="workTitle">이런 고민, 같이 풀어요</h2>
+          <p>말풍선 속 고민이 익숙하다면 바로 저를 찾아주세요.</p>
+        </div>
+      </div>
+
+      <div class="work-grid">
+        <article class="work bubble tail-l reveal">
+          <div class="work-top">
+            <div class="work-ico" aria-hidden="true"><svg class="ico"><use href="#i-doc"/></svg></div>
+            <h3>그룹웨어</h3>
+          </div>
+          <p class="q">“결재가 안 올라가요, 메일이 안 와요!”</p>
+          <p class="a">결재·메일·게시판처럼 매일 쓰는 협업 도구가 막히면 하루 업무가 통째로 멈춰요. 계정과 권한, 설정을 꼼꼼히 살펴 원인을 찾고, 헷갈리는 기능은 쉽게 안내해 업무 흐름이 끊기지 않게 돕습니다.</p>
+        </article>
+
+        <article class="work bubble tail-l reveal">
+          <div class="work-top">
+            <div class="work-ico" aria-hidden="true"><svg class="ico"><use href="#i-app"/></svg></div>
+            <h3>소프트웨어</h3>
+          </div>
+          <p class="q">“프로그램이 안 깔려요, 자꾸 튕겨요.”</p>
+          <p class="a">설치와 업데이트, 버전 충돌처럼 작지만 성가신 문제를 함께 해결해요. 업무에 필요한 프로그램이 안전한 상태로 잘 돌아가도록 미리 챙기고 정리합니다.</p>
+        </article>
+
+        <article class="work bubble tail-l reveal">
+          <div class="work-top">
+            <div class="work-ico" aria-hidden="true"><svg class="ico"><use href="#i-pc"/></svg></div>
+            <h3>하드웨어</h3>
+          </div>
+          <p class="q">“PC가 너무 느려요, 프린터가 멈췄어요.”</p>
+          <p class="a">PC와 프린터, 모니터 같은 장비가 말썽일 때 증상을 듣고 원인을 진단해요. 고칠 수 있는 건 바로 고치고, 교체가 필요하면 업무 공백이 적도록 순서를 맞춰 드립니다.</p>
+        </article>
+
+        <article class="work bubble tail-l reveal">
+          <div class="work-top">
+            <div class="work-ico" aria-hidden="true"><svg class="ico"><use href="#i-net"/></svg></div>
+            <h3>네트워크 인프라</h3>
+          </div>
+          <p class="q">“인터넷이 끊겨요, 와이파이가 약해요.”</p>
+          <p class="a">눈에 보이지 않는 연결이 가장 중요할 때가 많아요. 장비와 회선 상태를 살피며 문제의 싹을 미리 찾고, 장애가 생기면 빠르게 원인을 좁혀 다시 이어지도록 복구합니다.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 5. 원칙 ===== -->
+  <section class="block" aria-labelledby="ruleTitle" style="background:var(--blue-soft)">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-ico" aria-hidden="true"><svg class="ico"><use href="#i-promise"/></svg></div>
+        <div>
+          <h2 id="ruleTitle">새끼손가락 걸고 지키는 것</h2>
+          <p>일할 때 스스로에게 하는 세 가지 약속이에요.</p>
+        </div>
+      </div>
+
+      <ol class="rules">
+        <li class="rule reveal">
+          <div class="rule-badge" aria-hidden="true">
+            <svg class="bg" viewBox="0 0 56 56"><path d="M28 3c8 0 11 5 17 8s8 9 8 17-4 12-8 17-9 8-17 8-12-3-17-8-8-9-8-17 3-13 8-17S20 3 28 3Z" fill="#ffe14a" stroke="#2a2522" stroke-width="2.5"/></svg>
+            <svg class="ico"><use href="#i-speak"/></svg>
+          </div>
+          <div>
+            <h3>쉬운 말로 설명하기</h3>
+            <p>전산 용어로 벽을 쌓지 않아요. 무엇이 문제였고 앞으로 어떻게 하면 되는지, 누구나 이해할 수 있는 말로 전합니다.</p>
+          </div>
+        </li>
+        <li class="rule reveal">
+          <div class="rule-badge" aria-hidden="true">
+            <svg class="bg" viewBox="0 0 56 56"><rect x="4" y="4" width="48" height="48" rx="16" fill="#ffe14a" stroke="#2a2522" stroke-width="2.5" transform="rotate(8 28 28)"/></svg>
+            <svg class="ico"><use href="#i-search"/></svg>
+          </div>
+          <div>
+            <h3>원인까지 끝까지</h3>
+            <p>당장 증상만 가리고 넘어가지 않아요. 같은 문제가 다시 생기지 않도록 뿌리를 찾을 때까지 따라갑니다.</p>
+          </div>
+        </li>
+        <li class="rule reveal">
+          <div class="rule-badge" aria-hidden="true">
+            <svg class="bg" viewBox="0 0 56 56"><circle cx="28" cy="28" r="24" fill="#ffe14a" stroke="#2a2522" stroke-width="2.5"/></svg>
+            <svg class="ico"><use href="#i-note"/></svg>
+          </div>
+          <div>
+            <h3>남겨서 함께 쓰기</h3>
+            <p>해결한 방법은 기록으로 남겨요. 제가 없을 때도, 다음 사람도 헤매지 않도록 경험을 모두의 것으로 만듭니다.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== 6. 관심 분야 ===== -->
+  <section class="block" aria-labelledby="tagTitle">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-ico" aria-hidden="true"><svg class="ico"><use href="#i-tag"/></svg></div>
+        <div>
+          <h2 id="tagTitle">요즘 자꾸 눈이 가는 것들</h2>
+          <p>이 이야기라면 커피 한 잔 금방 비워요.</p>
+        </div>
+      </div>
+
+      <ul class="pills reveal">
+        <li class="pill b">그룹웨어 운영</li>
+        <li class="pill b">네트워크 인프라</li>
+        <li class="pill y">업무용 소프트웨어</li>
+        <li class="pill y">PC·주변기기 관리</li>
+        <li class="pill">와이파이 품질</li>
+        <li class="pill">장애 대응</li>
+        <li class="pill">정보보안 기본기</li>
+        <li class="pill">업무 자동화</li>
+        <li class="pill">쉬운 사용 안내서</li>
+        <li class="pill">장비 오래 쓰기</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== 7. 연락 ===== -->
+  <section class="contact" id="contact" aria-labelledby="contactTitle">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-ico" aria-hidden="true"><svg class="ico" style="color:var(--ink)"><use href="#i-mail"/></svg></div>
+        <div>
+          <h2 id="contactTitle">답장은 생각보다 빨라요</h2>
+          <p>궁금한 것, 막힌 것, 그냥 인사도 좋아요.</p>
+        </div>
+      </div>
+
+      <div class="contact-row">
+        <div class="contact-card bubble tail-l reveal">
+          <p>전산 때문에 일이 멈췄다면 혼자 끙끙대지 마세요. 메일 한 통이면 같이 들여다볼게요.</p>
+          <a class="btn btn-primary" href="mailto:hohohukk@gmail.com?subject=%EA%B9%80%EC%95%84%EB%B0%A9%EB%8B%98%2C%20%EB%AC%B8%EC%9D%98%EB%93%9C%EB%A0%A4%EC%9A%94">
+            <svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>이메일 보내기
+          </a>
+          <span class="mail-text">hohohukk@gmail.com</span>
+        </div>
+        <p class="bye reveal">여기까지 읽어 주셔서 고마워요.<br>오늘 하루도 접속 끊김 없이, 기분 좋게 흘러가길 바랄게요!</p>
+      </div>
+      <p class="foot-note">© 김영민 · 김아방</p>
+    </div>
+
+    <div class="ground" data-lane aria-hidden="true" style="margin-top:36px">
+      <svg viewBox="0 0 400 96" preserveAspectRatio="none"><path d="M0 36 Q60 10 120 30 T240 28 T400 30 V96 H0Z" fill="#ffe14a"/><path d="M0 64 Q70 48 150 60 T300 58 T400 62 V96 H0Z" fill="#fff6c7"/></svg>
+    </div>
+  </section>
+</main>
+
+<!-- 걸어 다니는 캐릭터 -->
+<div class="walker" id="walker" aria-hidden="true">
+  <span class="speech" id="walkerSay"></span>
+  <button type="button" id="walkerBtn" tabindex="-1" aria-label="캐릭터 핑이에게 인사하기">
+    <svg class="body" id="walkerSvg" viewBox="0 0 64 64"></svg>
+  </button>
+</div>
+
+<script>
+(function(){
+  var root = document.documentElement;
+
+  /* ---------- 움직임 설정 ---------- */
+  var mq = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+  var saved = null;
+  try { saved = localStorage.getItem('kab-motion'); } catch(e){}
+  var motionOff = saved ? saved === 'off' : !!(mq && mq.matches);
+  var btn = document.getElementById('motionBtn');
+
+  function applyMotion(){
+    root.classList.toggle('no-motion', motionOff);
+    btn.setAttribute('aria-pressed', motionOff ? 'true' : 'false');
+    btn.querySelector('use').setAttribute('href', motionOff ? '#i-play' : '#i-pause');
+    btn.querySelector('span').textContent = motionOff ? '움직임 켜기' : '움직임 끄기';
+    if (motionOff) stopWalk();
+    else scheduleWalk(3000);
+  }
+  btn.addEventListener('click', function(){
+    motionOff = !motionOff;
+    try { localStorage.setItem('kab-motion', motionOff ? 'off' : 'on'); } catch(e){}
+    applyMotion();
+  });
+  if (mq && mq.addEventListener) mq.addEventListener('change', function(e){
+    var s = null; try { s = localStorage.getItem('kab-motion'); } catch(_){}
+    if (!s){ motionOff = e.matches; applyMotion(); }
+  });
+
+  /* ---------- 시간대 인사 ---------- */
+  var h = new Date().getHours();
+  var g;
+  if (h >= 5 && h < 11)       g = ['#i-sun',    '좋은 아침이에요! 오늘 PC는 쌩쌩한가요?'];
+  else if (h >= 11 && h < 17) g = ['#i-bowl',   '점심은 맛있게 드셨어요? 오후도 힘내봐요!'];
+  else if (h >= 17 && h < 21) g = ['#i-sunset', '좋은 저녁이에요. 오늘도 수고 많으셨어요!'];
+  else                        g = ['#i-moon',   '늦은 밤까지 계시네요. 잠깐 쉬어가요.'];
+  document.getElementById('greetIco').setAttribute('href', g[0]);
+  document.getElementById('greetText').textContent = g[1];
+
+  /* ---------- 스크롤 등장 ---------- */
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { threshold:0.12, rootMargin:'0px 0px -40px 0px' });
+    reveals.forEach(function(el){ io.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- 키워드 뒤집기 ---------- */
+  document.querySelectorAll('.flip').forEach(function(card){
+    card.addEventListener('click', function(){
+      card.setAttribute('aria-pressed', card.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+    });
+  });
+
+  /* ---------- 캐릭터 인사 ---------- */
+  var lines = ['안녕하세요!', '반가워요~', '오늘도 접속 양호!', '핑! 신호 받았어요', '막히면 불러주세요', '랜선 꼬리 귀엽죠?'];
+  function pick(){ return lines[Math.floor(Math.random()*lines.length)]; }
+  function hop(el){
+    el.classList.remove('jump'); void el.offsetWidth; el.classList.add('jump');
+  }
+
+  var heroM = document.getElementById('heroMascot');
+  var heroSay = document.getElementById('heroSay');
+  var heroT;
+  heroM.addEventListener('click', function(){
+    if (!motionOff) hop(heroM);
+    heroSay.textContent = pick();
+    heroSay.classList.add('on');
+    clearTimeout(heroT);
+    heroT = setTimeout(function(){ heroSay.classList.remove('on'); }, 2200);
+  });
+
+  /* ---------- 화면 아래를 걷는 캐릭터 ---------- */
+  // <use> 안쪽에는 다리 애니메이션이 적용되지 않으므로 캐릭터를 직접 복사해 넣기
+  document.getElementById('walkerSvg').innerHTML = document.getElementById('mascot').innerHTML;
+  var walker = document.getElementById('walker');
+  var wBtn = document.getElementById('walkerBtn');
+  var wSay = document.getElementById('walkerSay');
+  var lanes = document.querySelectorAll('[data-lane]');
+  var walkTimer = null, sayTimer = null, walking = false;
+
+  // 캐릭터가 걷는 줄(화면 맨 아래 약 80px)이 글자가 없는 '땅' 영역일 때만 보이게
+  function laneClear(){
+    var vh = window.innerHeight;
+    for (var i=0;i<lanes.length;i++){
+      var r = lanes[i].getBoundingClientRect();
+      if (r.top <= vh - 82 && r.bottom >= vh - 2) return true;
+    }
+    return false;
+  }
+  function updateVisibility(){
+    if (!walking) return;
+    walker.classList.toggle('hide', !laneClear());
+  }
+  function scheduleWalk(delay){
+    clearTimeout(walkTimer);
+    if (motionOff) return;
+    walkTimer = setTimeout(startWalk, delay);
+  }
+  function startWalk(){
+    if (motionOff || walking) return;
+    if (!laneClear() || document.hidden){ scheduleWalk(2500); return; }
+    walking = true;
+    walker.classList.remove('hide','paused','jump');
+    walker.classList.toggle('rtl', Math.random() < 0.5);
+    var dur = Math.max(8, Math.min(14, window.innerWidth / 70));
+    walker.style.setProperty('--dur', dur + 's');
+    walker.classList.add('walking');
+  }
+  function stopWalk(){
+    clearTimeout(walkTimer);
+    walking = false;
+    walker.classList.remove('walking','hide','paused','jump');
+    wSay.classList.remove('on');
+  }
+  walker.addEventListener('animationend', function(e){
+    if (e.target !== walker) return;
+    stopWalk();
+    scheduleWalk(15000 + Math.random()*15000);   // 15~30초마다 가끔
+  });
+  wBtn.addEventListener('click', function(){
+    if (!walking) return;
+    hop(walker);
+    walker.classList.add('paused');                // 인사하는 동안 잠깐 멈춤
+    wSay.textContent = pick();
+    // 말풍선이 화면 밖으로 잘리지 않게 위치 보정
+    var cx = walker.getBoundingClientRect().left + 32;
+    var half = wSay.offsetWidth / 2, pad = 10, sx = 0;
+    if (cx - half < pad) sx = pad - (cx - half);
+    else if (cx + half > window.innerWidth - pad) sx = (window.innerWidth - pad) - (cx + half);
+    wSay.style.setProperty('--sx', sx + 'px');
+    wSay.classList.add('on');
+    clearTimeout(sayTimer);
+    sayTimer = setTimeout(function(){
+      wSay.classList.remove('on');
+      walker.classList.remove('paused');
+    }, 1800);
+  });
+  window.addEventListener('scroll', updateVisibility, { passive:true });
+  window.addEventListener('resize', updateVisibility);
+
+  applyMotion();
+})();
+</script>
+</body>
+</html>
